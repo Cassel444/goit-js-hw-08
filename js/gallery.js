@@ -87,7 +87,7 @@ gallery.insertAdjacentHTML("beforeend", createMarkup(images));
 function handlerClick(evt) {
     evt.preventDefault();
     const target = evt.target;
-    if (target === evt.currentTarget) {
+    if (target.nodeName !== "IMG") {
         return;
     }
 
@@ -95,7 +95,7 @@ function handlerClick(evt) {
     const instance = basicLightbox.create(`
         <img src="${originalImage}" width="1112" height="640">
     `)
-    instance.show()
+    instance.show();
 }
 
 
