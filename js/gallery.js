@@ -86,14 +86,13 @@ gallery.insertAdjacentHTML("beforeend", createMarkup(images));
 
 function handlerClick(evt) {
     evt.preventDefault();
-    const target = evt.target;
-    if (target.nodeName !== "IMG") {
+    if (evt.target.nodeName !== "IMG") {
         return;
     }
 
-    const originalImage = target.dataset.source;
+    const originalImage = evt.target.dataset.source;
     const instance = basicLightbox.create(`
-        <img src="${originalImage}" width="1112" height="640">
+        <img src="${originalImage}" alt="${evt.target.description}" width="1112" height="640">
     `)
     instance.show();
 }
